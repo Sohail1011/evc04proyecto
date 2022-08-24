@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="layout::head">
+    <title>Document</title>
+    
+</head>
+<body>
+    <header th:replace="layout::cabecera"></header>
+    <div th:replace="layout::nav"></div>
+
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <div
+            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">Dashboard</h1>
+            <div class="btn-toolbar mb-2 mb-md-0">
+                <div class="btn-group me-2">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">Compartir</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary">Exportar</button>
+                </div>
+                <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+                    <span data-feather="calendar"></span>
+                    Esta semana
+                </button>
+            </div>
+        </div>
+
+        <h3 style="text-align: center;">Registro de Usuarios</h3>
+        <hr>
+
+        <div class="card">
+            <div class="card-body">
+                <form class="row g-3" th:action="@{/usuario/regUsuario}" method="post" th:object="${regusuarios}">
+                    <div class="col-md-3">
+                        <label for="txtdescripcion" class="form-label">IdUsuario</label>
+                        <input type="text" class="form-control" id="txtdescripcion" required name="idusuario">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="txtPassword" class="form-label">Contraseña</label>
+                        <div class="input-group">
+                            <input id="txtPassword" type="password" Class="form-control" name="contrasenia" required>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="txtdescripcion" class="form-label">Correo Electrónico</label>
+                        <input type="text" class="form-control" id="txtdescripcion" required name="email">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="txtpreciounitario" class="form-label">Tipo</label>
+                        <select id="cbocargo" class="form-select" onchange="mostrarCargo(this.value);">
+                            <option>Seleccione</option>
+                            <option value="Administrador">Administrador</option>
+                            <option value="Supervisor">Supervisor</option>
+                            <option value="Vendedor">Vendedor</option>
+                            <option value="Repartidor">Repartidor</option>
+                            <option value="Cajero">Cajero</option>
+                            <option value="Limpieza">Limpieza</option>
+                        </select>
+                        <input type="hidden" class="form-control" id="idcargo" required name="tipo" value="">
+                    </div>
+                    <div class="col-12">
+                        <button class="btn btn-primary" type="submit" data-bs-toggle="modal" data-bs-target="#exampleModal" id="btnregistrar">Registrar Usuario</button>
+                        <a th:href="@{/usuario/listUsuario}">
+                            <button class="btn btn-success btnlistado" type="button">Listar Usuarios</button>
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    
+    <div th:replace="layout::script"></div>
+</body>
+</html>

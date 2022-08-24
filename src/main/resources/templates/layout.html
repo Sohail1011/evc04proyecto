@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+<head th:fragment="head">
+<meta charset="utf-8">
+
+<title>Jose Omar EIRL</title>
+
+<link rel="canonical"
+	href="https://getbootstrap.com/docs/5.1/examples/dashboard/">
+
+<link rel="stylesheet" th:href="@{/css/estilos.css}">
+<link rel="stylesheet" th:href="@{/css/dashboard.css}">
+
+</head>
+<body>
+
+	<header th:fragment="cabecera"
+		class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+		<a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Inversion
+			Jose Omar E.I.R.L</a>
+		<button class="navbar-toggler position-absolute d-md-none collapsed"
+			type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu"
+			aria-controls="sidebarMenu" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<input class="form-control form-control-dark w-100" type="text"
+			placeholder="Buscar" aria-label="Search">
+		<div class="navbar-nav">
+			<div class="nav-item text-nowrap">
+				<a class="nav-link px-3" href="#">Salir</a>
+			</div>
+		</div>
+	</header>
+
+	<div th:fragment="nav" class="container-fluid">
+		<div class="row">
+			<nav id="sidebarMenu"
+				class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+				<div class="position-sticky pt-3">
+					<ul class="nav flex-column navsize">
+						<li class="nav-item"><a class="nav-link active"
+							aria-current="page" th:href="@{/dashboard}"> <span
+								data-feather="home"></span> <svg
+									xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+									viewBox="0 0 24 24" fill="none" stroke="currentColor"
+									stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+									class="feather feather-home" aria-hidden="true">
+                                    <path
+										d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                    <polyline
+										points="9 22 9 12 15 12 15 22"></polyline>
+                                </svg> Dashboard
+						</a></li>
+						<li class="nav-item"><a class="nav-link dropdown-toggle"
+							data-bs-toggle="dropdown" href="#"> <span data-feather="file"></span>
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+									viewBox="0 0 24 24" fill="none" stroke="currentColor"
+									stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+									class="feather feather-layers" aria-hidden="true">
+                                    <polygon
+										points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                                    <polyline points="2 17 12 22 22 17"></polyline>
+                                    <polyline points="2 12 12 17 22 12"></polyline>
+                                </svg> Productos
+						</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<li><a class="dropdown-item"
+									th:href="@{/producto/listProducto}">Listar</a></li>
+								<li><a class="dropdown-item"
+									th:href="@{/producto/regProducto}">Registrar</a></li>
+							</ul></li>
+						<li class="nav-item"><a class="nav-link disabled" href="#">
+								<span data-feather="shopping-cart"></span> <svg
+									xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+									viewBox="0 0 24 24" fill="none" stroke="currentColor"
+									stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+									class="feather feather-shopping-cart" aria-hidden="true">
+                                    <circle cx="9" cy="21" r="1"></circle>
+                                    <circle cx="20" cy="21" r="1"></circle>
+                                    <path
+										d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                                </svg> Compras
+						</a></li>
+						<li class="nav-item"><a class="nav-link dropdown-toggle"
+							data-bs-toggle="dropdown" href="#"> <span
+								data-feather="users"></span> <svg
+									xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+									viewBox="0 0 24 24" fill="none" stroke="currentColor"
+									stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+									class="feather feather-users" aria-hidden="true">
+                                    <path
+										d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                </svg> Proveedores
+						</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<li><a class="dropdown-item"
+									th:href="@{/proveedor/listProveedor}">Listar</a></li>
+								<li><a class="dropdown-item"
+									th:href="@{/proveedor/regProveedor}">Registrar</a></li>
+							</ul></li>
+						<li class="nav-item"><a class="nav-link disabled" href="#">
+								<span data-feather="bar-chart-2"></span> <svg
+									xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+									fill="currentColor" class="bi bi-receipt-cutoff"
+									viewBox="0 0 16 16">
+                                    <path
+										d="M3 4.5a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 1 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zm0 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5zM11.5 4a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1zm0 2a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1zm0 2a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1zm0 2a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1zm0 2a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1z" />
+                                    <path
+										d="M2.354.646a.5.5 0 0 0-.801.13l-.5 1A.5.5 0 0 0 1 2v13H.5a.5.5 0 0 0 0 1h15a.5.5 0 0 0 0-1H15V2a.5.5 0 0 0-.053-.224l-.5-1a.5.5 0 0 0-.8-.13L13 1.293l-.646-.647a.5.5 0 0 0-.708 0L11 1.293l-.646-.647a.5.5 0 0 0-.708 0L9 1.293 8.354.646a.5.5 0 0 0-.708 0L7 1.293 6.354.646a.5.5 0 0 0-.708 0L5 1.293 4.354.646a.5.5 0 0 0-.708 0L3 1.293 2.354.646zm-.217 1.198.51.51a.5.5 0 0 0 .707 0L4 1.707l.646.647a.5.5 0 0 0 .708 0L6 1.707l.646.647a.5.5 0 0 0 .708 0L8 1.707l.646.647a.5.5 0 0 0 .708 0L10 1.707l.646.647a.5.5 0 0 0 .708 0L12 1.707l.646.647a.5.5 0 0 0 .708 0l.509-.51.137.274V15H2V2.118l.137-.274z" />
+                                </svg> Ventas
+						</a></li>
+						<li class="nav-item"><a class="nav-link dropdown-toggle"
+							data-bs-toggle="dropdown" href="#"> <span
+								data-feather="layers"></span> <svg
+									xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+									viewBox="0 0 24 24" fill="none" stroke="currentColor"
+									stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+									class="feather feather-users" aria-hidden="true">
+                                    <path
+										d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                </svg> Clientes
+						</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<li><a class="dropdown-item"
+									th:href="@{/cliente/listCliente}">Listar</a></li>
+								<li><a class="dropdown-item"
+									th:href="@{/cliente/regCliente}">Registrar</a></li>
+							</ul></li>
+						<li class="nav-item"><a class="nav-link dropdown-toggle"
+							data-bs-toggle="dropdown" href="#"> <span
+								data-feather="layers"></span> <svg
+									xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+									viewBox="0 0 24 24" fill="none" stroke="currentColor"
+									stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+									class="feather feather-users" aria-hidden="true">
+                                    <path
+										d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                </svg> Usuarios
+						</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<li><a class="dropdown-item"
+									th:href="@{/usuario/listUsuario}">Listar</a></li>
+								<li><a class="dropdown-item"
+									th:href="@{/usuario/regUsuario}">Registrar</a></li>
+							</ul></li>
+						<li class="nav-item"><a class="nav-link disabled" href="#">
+								<span data-feather="layers"></span> <svg
+									xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+									fill="currentColor" class="bi bi-currency-exchange"
+									viewBox="0 0 16 16">
+                                    <path
+										d="M0 5a5.002 5.002 0 0 0 4.027 4.905 6.46 6.46 0 0 1 .544-2.073C3.695 7.536 3.132 6.864 3 5.91h-.5v-.426h.466V5.05c0-.046 0-.093.004-.135H2.5v-.427h.511C3.236 3.24 4.213 2.5 5.681 2.5c.316 0 .59.031.819.085v.733a3.46 3.46 0 0 0-.815-.082c-.919 0-1.538.466-1.734 1.252h1.917v.427h-1.98c-.003.046-.003.097-.003.147v.422h1.983v.427H3.93c.118.602.468 1.03 1.005 1.229a6.5 6.5 0 0 1 4.97-3.113A5.002 5.002 0 0 0 0 5zm16 5.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0zm-7.75 1.322c.069.835.746 1.485 1.964 1.562V14h.54v-.62c1.259-.086 1.996-.74 1.996-1.69 0-.865-.563-1.31-1.57-1.54l-.426-.1V8.374c.54.06.884.347.966.745h.948c-.07-.804-.779-1.433-1.914-1.502V7h-.54v.629c-1.076.103-1.808.732-1.808 1.622 0 .787.544 1.288 1.45 1.493l.358.085v1.78c-.554-.08-.92-.376-1.003-.787H8.25zm1.96-1.895c-.532-.12-.82-.364-.82-.732 0-.41.311-.719.824-.809v1.54h-.005zm.622 1.044c.645.145.943.38.943.796 0 .474-.37.8-1.02.86v-1.674l.077.018z" />
+                                </svg> Pagos
+						</a></li>
+						<li class="nav-item"><a class="nav-link dropdown-toggle"
+							data-bs-toggle="dropdown" href="#"> <span
+								data-feather="layers"></span> <svg
+									xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+									fill="currentColor" class="bi bi-person-badge-fill"
+									viewBox="0 0 16 16">
+                                    <path
+										d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V2zm4.5 0a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zM8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm5 2.755C12.146 12.825 10.623 12 8 12s-4.146.826-5 1.755V14a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-.245z" />
+                                  </svg> Empleados
+						</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<li><a class="dropdown-item"
+									th:href="@{/empleado/listEmpleado}">Listar</a></li>
+								<li><a class="dropdown-item"
+									th:href="@{/empleado/regEmpleado}">Registrar</a></li>
+							</ul></li>
+						<li class="nav-item"><a class="nav-link disabled" href="#">
+								<span data-feather="layers"></span> <svg
+									xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+									viewBox="0 0 24 24" fill="none" stroke="currentColor"
+									stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+									class="feather feather-bar-chart-2" aria-hidden="true">
+                                    <line x1="18" y1="20" x2="18"
+										y2="10"></line>
+                                    <line x1="12" y1="20" x2="12" y2="4"></line>
+                                    <line x1="6" y1="20" x2="6" y2="14"></line>
+                                </svg> Reporte
+						</a></li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+	</div>
+
+	<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+		<div
+			class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+			<h1 class="h2">Dashboard : Bienvenido</h1>
+			<div class="btn-toolbar mb-2 mb-md-0">
+				<div class="btn-group me-2">
+					<button type="button" class="btn btn-sm btn-outline-secondary">Compartir</button>
+					<button type="button" class="btn btn-sm btn-outline-secondary">Exportar</button>
+				</div>
+				<button type="button"
+					class="btn btn-sm btn-outline-secondary dropdown-toggle">
+					<span data-feather="calendar"></span> Esta semana
+				</button>
+			</div>
+		</div>
+	</main>
+
+	<div th:fragment="script">
+		<script type="text/javascript" th:src="@{/js/jquery/jquery3.6.js}"></script>
+		<script type="text/javascript"
+			th:src="@{/js/bootstrap/bootstrap.bundle.min.js}"></script>
+		<script type="text/javascript" th:src="@{/js/jsweb/selectCbo.js}"></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
+			integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
+			crossorigin="anonymous"></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"
+			integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha"
+			crossorigin="anonymous"></script>
+	</div>
+</body>
+</html>

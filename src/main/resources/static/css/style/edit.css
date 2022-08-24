@@ -1,0 +1,81 @@
+.logo{
+    position: absolute;
+    margin-left: 100px;
+}
+.barra{
+    position: absolute;
+    right: 40vh;
+}
+.text-end{
+    position: absolute;
+    right: 10vh;
+}
+.nav li{
+    margin: 0 5px 0 5px;
+}
+.nav li:hover{
+    border-bottom: 2px solid white;
+    
+}
+.carousel-inner h1{
+    padding-bottom: 50px;
+    margin-bottom: 0px;
+    font-size: 4rem;
+    text-shadow: black 7px 3px;
+}
+.carousel-inner p{
+    text-shadow: black 2px 3px;
+}
+
+.carousel-item{
+    height: 75vh;
+}
+.carousel-inner{
+    height: 700px;
+}
+.carousel-inner img{
+    height: 80vh;
+    width: 100%;
+}
+.centrado{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.centrar{
+    text-align: center;
+    padding: 100px 5rem 50px 5rem;
+}
+.bd-placeholder-img img{
+    box-shadow: 10px 5px 15px black;
+}
+.centrar h2{
+    padding-top: 2rem;
+}
+.centrar p{
+    text-align: justify;
+    padding: 20px 5rem 20px 5rem;
+    align-items: center;
+    position: relative;
+}
+
+.text-product{
+    color:black;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.btnlistado{
+    right: 0;
+    position: absolute;
+    margin-right: 1rem;
+}
+
+.navsize{
+    font-size: medium;
+}
+
+a.nav-link.disabled{
+    color: rgb(194, 194, 194);
+}

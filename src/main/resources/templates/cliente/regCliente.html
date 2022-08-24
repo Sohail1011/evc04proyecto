@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="layout::head">
+    <title>Document</title>
+</head>
+<body>
+    <header th:replace="layout::cabecera"></header>
+    <div th:replace="layout::nav"></div>
+
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <div
+            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">Dashboard</h1>
+            <div class="btn-toolbar mb-2 mb-md-0">
+                <div class="btn-group me-2">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">Compartir</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary">Exportar</button>
+                </div>
+                <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+                    <span data-feather="calendar"></span>
+                    Esta semana
+                </button>
+            </div>
+        </div>
+
+        <h3 style="text-align: center;">Registro de Clientes</h3>
+        <hr>
+
+        <div class="card">
+            <div class="card-body">
+                <form class="row g-3" th:action="@{/cliente/regCliente}" method="post" th:object="${clientes}">
+                    <div class="col-md-6">
+                        <label for="txttipodocumento" class="form-label">Tipo de Documento</label>
+                        <select id="cbodocumento" class="form-select" onchange="mostrarDocumento(this.value);">
+                            <option>Seleccione</option>
+                            <option value="DNI">DNI</option>
+                            <option value="RUC">RUC</option>
+                            <option value="CE">CE</option>
+                        </select>
+                        
+                        <input type="hidden" class="form-control" id="txttipodocumento" required name="tipodocumento" value="">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="txtnrodocumento" class="form-label">Número de Documento</label>
+                        <input type="number" class="form-control" id="txtnrodocumento" required name="nrodocumento" placeholder="12345678">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="txtnomcliente" class="form-label">Nombres</label>
+                        <input type="text" class="form-control" id="txtnomcliente" required name="nomcliente">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="txtapepatcliente" class="form-label">Apellido Paterno</label>
+                        <input type="text" class="form-control" id="txtapepatcliente" required name="apepatcliente">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="apematcliente" class="form-label">Apellido Materno</label>
+                        <input type="text" class="form-control" id="apematcliente" required name="apematcliente">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="txttelefono" class="form-label">Teléfono</label>
+                        <input type="number" class="form-control" id="txttelefono" required name="telefono" placeholder="987-654-123">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="txtemail" class="form-label">Correo Electrónico</label>
+                        <input type="email" class="form-control" id="txtemail" required name="email">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="txtdireccion" class="form-label">Dirección</label>
+                        <input type="text" class="form-control" id="txtdireccion" required name="direccion" placeholder="Av. / Calle">
+                    </div>
+                    <div class="col-12">
+                        <button class="btn btn-primary" type="submit">Registrar Cliente</button>
+                        <a th:href="@{/cliente/listCliente}">
+                            <button class="btn btn-success btnlistado" type="button">Listar Clientes</button>
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    
+    <div th:replace="layout::script"></div>
+</body>
+</html>

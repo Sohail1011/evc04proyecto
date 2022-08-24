@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>Jose Omar EIRL</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/sign-in/">
+
+    <link rel="stylesheet" th:href="@{/css/estilos.css}">
+    <link rel="stylesheet" th:href="@{/css/signin.css}">
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="text-center">
+        <main class="form-signin">
+            <h1>Inversiones Jose Omar E.I.R.L</h1>
+            <form th:action="@{/login}" method="post" th:object="${loginform}">
+                <img th:src="@{/img/logo.png}" alt="ImgLogo" width="100" height="100"  >
+                <h2 class="h3 mb-3 fw-normal">Iniciar Sesión</h2>
+                    
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="floatingInput" name="usuario">
+                    <label for="floatingInput">Usuario</label>
+                </div>
+                <div class="form-floating">
+                    <input type="password" class="form-control" id="floatingPassword" name="password">
+                    <label for="floatingPassword">Contraseña</label>
+                </div>
+
+                <div class="checkbox mb-3">
+                    <label>
+                        <input type="checkbox" value="remember-me"> Recordarme
+                    </label>
+                </div>
+                <button class="w-100 btn btn-lg btn-primary botton" type="submit" th:href="@{/dashboard}">Entrar</button>
+                <a href="#">Crear Cuenta</a>
+                <p class="mt-5 mb-3 text-muted">&copy; 2021</p>
+            </form>
+        </main>
+    </div>
+</body>
+</html>

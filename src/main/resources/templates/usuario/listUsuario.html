@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="layout::head">
+    <title>Document</title>
+</head>
+<body>
+    <header th:replace="layout::cabecera"></header>
+    <div th:replace="layout::nav"></div>
+
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <div
+            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h1 class="h2">Dashboard</h1>
+            <div class="btn-toolbar mb-2 mb-md-0">
+                <div class="btn-group me-2">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">Compartir</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary">Exportar</button>
+                </div>
+                <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
+                    <span data-feather="calendar"></span>
+                    Esta semana
+                </button>
+            </div>
+        </div>
+
+        <h3 style="text-align: center;">Listado de Usuarios</h3>
+        <hr>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">IdUsuario</th>
+                    <th scope="col">Contrasenia</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Tipo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="usuario :${listusuarios}">
+                    <td th:text="${usuario.idusuario}"></td>
+                    <td th:text="${usuario.contrasenia}"></td>
+                    <td th:text="${usuario.email}"></td>
+                    <td th:text="${usuario.tipo}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+    
+    <div th:replace="layout::script"></div>
+</body>
+</html>

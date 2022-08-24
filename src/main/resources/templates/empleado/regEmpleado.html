@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:replace="layout::head">
+<title>Document</title>
+</head>
+<body>
+	<header th:replace="layout::cabecera"></header>
+	<div th:replace="layout::nav"></div>
+
+	<main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+		<div
+			class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+			<h1 class="h2">Dashboard</h1>
+			<div class="btn-toolbar mb-2 mb-md-0">
+				<div class="btn-group me-2">
+					<button type="button" class="btn btn-sm btn-outline-secondary">Compartir</button>
+					<button type="button" class="btn btn-sm btn-outline-secondary">Exportar</button>
+				</div>
+				<button type="button"
+					class="btn btn-sm btn-outline-secondary dropdown-toggle">
+					<span data-feather="calendar"></span> Esta semana
+				</button>
+			</div>
+		</div>
+
+		<h3 style="text-align: center;">Registro de Empleados</h3>
+		<hr>
+
+		<div class="card">
+			<div class="card-body">
+				<form class="row g-3" th:action="@{/empleado/regEmpleado}"
+					method="post" th:object="${empleados}">
+					<div class="col-md-3">
+						<label for="txtnrodocumento" class="form-label">Número de
+							Documento</label> <input type="number" class="form-control"
+							id="txtnrodocumento" required name="nrodocumento"
+							placeholder="12345678">
+					</div>
+					<div class="col-md-3">
+						<label for="txtnomempleado" class="form-label">Nombres</label> <input
+							type="text" class="form-control" id="txtnomempleado" required
+							name="nomempleado">
+					</div>
+					<div class="col-md-3">
+						<label for="txtapepatempleado" class="form-label">Apellido
+							Paterno</label> <input type="text" class="form-control"
+							id="txtapepatempleado" required name="apepatempleado">
+					</div>
+					<div class="col-md-3">
+						<label for="apematempleado" class="form-label">Apellido
+							Materno</label> <input type="text" class="form-control"
+							id="apematempleado" required name="apematempleado">
+					</div>
+					<div class="col-md-4">
+						<label for="txtidcargo" class="form-label">Cargo</label> <select
+							id="cbocargo" class="form-select"
+							onchange="mostrarCargo(this.value);">
+							<option>Seleccione</option>
+							<option value="C01">Administrador</option>
+							<option value="C02">Supervisor</option>
+							<option value="C03">Vendedor</option>
+							<option value="C04">Repartidor</option>
+							<option value="C06">Cajero</option>
+							<option value="C07">Limpieza</option>
+						</select> <input type="hidden" class="form-control" id="idcargo" required
+							name="idcargo" value="">
+					</div>
+					<div class="col-md-4">
+						<label for="txttelefono" class="form-label">Teléfono</label> <input
+							type="number" class="form-control" id="txttelefono" required
+							name="telefono" placeholder="987-654-123">
+					</div>
+					<div class="col-md-4">
+						<label for="txtemail" class="form-label">Correo
+							Electrónico</label> <input type="email" class="form-control"
+							id="txtemail" required name="email">
+					</div>
+					<div class="col-md-6">
+						<label for="txtdireccion" class="form-label">Dirección</label> <input
+							type="text" class="form-control" id="txtdireccion" required
+							name="direccion" placeholder="Av. / Calle">
+					</div>
+					<div class="col-12">
+						<button class="btn btn-primary" type="submit">Registrar
+							Empleado</button>
+						<a th:href="@{/empleado/listEmpleado}">
+							<button class="btn btn-success btnlistado" type="button">Listar
+								Empleados</button>
+						</a>
+					</div>
+				</form>
+			</div>
+		</div>
+	</main>
+
+	<div th:replace="layout::script"></div>
+</body>
+</html>
